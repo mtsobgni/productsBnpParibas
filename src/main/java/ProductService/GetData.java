@@ -13,8 +13,6 @@ public class GetData {
 
         List<Product> products = new ArrayList<>();
 
-
-        //
         Scanner sc = new Scanner(System.in);
         int qteApple;
         int qteOrange;
@@ -41,7 +39,7 @@ public class GetData {
             qteOrange = sc.nextInt();
         } while (qteOrange <= 0);
         System.out.println("La quantité d'orange " + qteOrange);
-
+            j=0;
         do {
             System.out.println("Entrez la quantité de melon!");
             while (!sc.hasNextInt()&& j<10) {
@@ -53,10 +51,9 @@ public class GetData {
         } while (qteWatermelon <= 0);
         System.out.println("La quantité d'orange " + qteWatermelon);
 
-
-        Product apple = new Product(1,ProductType.APPLE,qteApple,3);
-        Product orange = new Product(2,ProductType.ORANGE,qteOrange,3);
-        Product watermelon = new Product(3,ProductType.WATERMELON,qteWatermelon,3);
+        Product apple = new Product(ProductType.APPLE,qteApple,3);
+        Product orange = new Product(ProductType.ORANGE,qteOrange,3);
+        Product watermelon = new Product(ProductType.WATERMELON,qteWatermelon,3);
 
         products.add(apple);
         products.add(orange);

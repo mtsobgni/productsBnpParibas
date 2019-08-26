@@ -2,21 +2,11 @@ package model;
 
 public class Product {
 
-    private Integer id;
-
     private ProductType name;
 
     private int qte;
 
     private double price;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public ProductType getName() {
         return name;
@@ -42,8 +32,8 @@ public class Product {
         this.name = name;
     }
 
-    public Product(Integer id, ProductType name, int qte, double price) {
-        this.id = id;
+    public Product( ProductType name, int qte, double price) {
+
         this.name = name;
         this.qte = qte;
         this.price = price;
