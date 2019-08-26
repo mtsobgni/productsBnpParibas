@@ -39,7 +39,7 @@ public class GetData {
             qteOrange = sc.nextInt();
         } while (qteOrange <= 0);
         System.out.println("La quantité d'orange " + qteOrange);
-            j=0;
+
         do {
             System.out.println("Entrez la quantité de melon!");
             while (!sc.hasNextInt()&& j<10) {
