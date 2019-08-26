@@ -8,7 +8,7 @@ public class Product {
 
     private int qte;
 
-    private Integer price;
+    private double price;
 
     public Integer getId() {
         return id;
@@ -30,11 +30,11 @@ public class Product {
         this.qte = qte;
     }
 
-    public Integer getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -42,7 +42,7 @@ public class Product {
         this.name = name;
     }
 
-    public Product(Integer id, ProductType name, int qte, Integer price) {
+    public Product(Integer id, ProductType name, int qte, double price) {
         this.id = id;
         this.name = name;
         this.qte = qte;
