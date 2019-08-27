@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class GetData {
 
-    public static List<Product> order(){
+    public static List<Product> order() {
 
         List<Product> products = new ArrayList<>();
 
@@ -17,51 +17,32 @@ public class GetData {
         int qteApple;
         int qteOrange;
         int qteWatermelon;
-        int j=0;
-        do {
-            System.out.println("Entrez la quantité de APPLE!");
-            while (!sc.hasNextInt()&& j<10) {
-                System.out.println("Veuillez entrer un nombre positive!");
-                sc.next();
-                j+=1;
-            }
+        int j = 0;
+
+        System.out.println("Entrez le contenu du panier du client en spécifiant la quantité de chaque produit dans cet ordre " +
+                "apple orange watermelon");
+        try {
             qteApple = sc.nextInt();
-        } while (qteApple <= 0);
+            System.out.println(qteApple);
+        } catch (Exception e) {
+        }
+           /*
+        qteApple = sc.nextInt();
+    } while (qteApple <= 0);
         System.out.println("La quantité de apple est " + qteApple);
-            j=0;
-        do {
-            System.out.println("Entrez la quantité d'orange!");
-            while (!sc.hasNextInt()&& j<10) {
-                System.out.println("Veuillez entrer un entier positive!");
-                sc.next();
-                j+=1;
-            }
-            qteOrange = sc.nextInt();
-        } while (qteOrange <= 0);
-        System.out.println("La quantité d'orange " + qteOrange);
-            j=0;
-        do {
-            System.out.println("Entrez la quantité de melon!");
-            while (!sc.hasNextInt()&& j<10) {
-                System.out.println("Veuillez entrer un entier positive!");
-                sc.next();
-                j+=1;
-            }
-            qteWatermelon = sc.nextInt();
-        } while (qteWatermelon <= 0);
-        System.out.println("La quantité d'orange " + qteWatermelon);
+    j=0;
 
         Product apple = new Product(ProductType.APPLE,qteApple,3);
         Product orange = new Product(ProductType.ORANGE,qteOrange,3);
-        Product watermelon = new Product(ProductType.WATERMELON,qteWatermelon,3);
+        Product watermelon = new Product(ProductType.WATERMELON,qteWatermelon,3);*/
 
-        products.add(apple);
-        products.add(orange);
-        products.add(watermelon);
+            //products.add(apple);
+            //products.add(orange);
+            //products.add(watermelon);
 
-        return  products;
+            return null;
+
+        }
 
     }
 
-
-}

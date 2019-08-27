@@ -9,30 +9,30 @@ import java.util.List;
 
 public class OrderService {
 
-    public static HashMap<ProductType, HashMap<Integer, Double>> amount (List<Product> products){
+    public static HashMap<ProductType, HashMap<Integer, Double>> amount (int[] tab){
 
         HashMap<ProductType,HashMap<Integer, Double> > amount= new HashMap<>();
         int q =0;
         int r =0;
-        for ( Product p: products
-             ) {
+        int apple = tab[0], orange= tab[1], watermelon= tab[2];
+
             HashMap<Integer, Double> bill = new HashMap<>();
-            switch (p.getName()){
-                case APPLE:
-                    q= p.getQte()/2;
-                    r = p.getQte()%2;
-                    bill.put(p.getQte(),q*Constantes.priceApple + r*Constantes.priceApple);
+            HashMap<Integer, Double> bill2 = new HashMap<>();
+            HashMap<Integer, Double> bill3 = new HashMap<>();
+
+                    q= apple/2;
+                    r = apple%2;
+                    bill.put(apple,q*Constantes.priceApple + r*Constantes.priceApple);
                     amount.put(ProductType.APPLE ,bill );
-                case ORANGE:
-                    bill.put(p.getQte(),Constantes.priceOrange*p.getQte());
+
+                    bill.put(orange,Constantes.priceOrange*orange);
                     amount.put(ProductType.ORANGE,bill );
-                case WATERMELON:
-                    q= p.getQte()/3;
-                    r = p.getQte()%3;
-                    bill.put(p.getQte(), q*Constantes.priceWatermelon*2 + r*Constantes.priceWatermelon );
+
+                    q= watermelon/3;
+                    r = watermelon%3;
+                    bill.put(watermelon, q*Constantes.priceWatermelon*2 + r*Constantes.priceWatermelon );
                     amount.put(ProductType.WATERMELON ,bill);
-            }
-        }
+
         return amount;
     }
 }
