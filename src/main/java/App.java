@@ -9,6 +9,7 @@ public class App {
             do {
                 IsGoodFormat=true;
                 System.out.println("Entrez la quantité des différents produits dans cet ordre apple-orange-watermelon, séparé par un tiret de 6 ");
+                System.out.println("0 si un produit ne fait partie du panier ");
                 Scanner sc = new Scanner(System.in);
                 String basket = sc.nextLine();
                 final String SEPARATEUR = "-";
