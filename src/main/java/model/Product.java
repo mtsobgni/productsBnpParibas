@@ -32,10 +32,8 @@ public class Product {
         this.name = name;
     }
 
-    public Product( ProductType name, int qte, double price) {
-
+    public Product( ProductType name, int qte) {
         this.name = name;
         this.qte = qte;
-        this.price = price;
     }
 }
