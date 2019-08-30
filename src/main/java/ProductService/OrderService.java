@@ -1,57 +1,34 @@
 package ProductService;
 
-import model.Constantes;
-import model.Product;
-import model.ProductType;
+import model.Order;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
+
+import static model.ProductFixtures.APPLE;
+import static model.ProductFixtures.WATERMELON;
 
 public class OrderService {
 
-    public static HashMap<ProductType, HashMap<Integer, Double>> amount(List<Product> products) {
+      public static  HashMap<Order, Double> calculateAmountOfBasket(Set<Order> baskets){
 
-        HashMap<ProductType,HashMap<Integer, Double> > amount= new HashMap<>();
+          HashMap<Order, Double> amount = new HashMap<>();
 
-        for ( Product p: products
-                ) {
-            HashMap<Integer, Double> billApple = new HashMap<>();
-            HashMap<Integer, Double> billOrange = new HashMap<>();
-            HashMap<Integer, Double> billWatermelon = new HashMap<>();
-
-            if (p.getName().equals(ProductType.APPLE)){
-
-                billApple.put(p.getQte(),(p.getQte()/2)*Constantes.priceApple + (p.getQte()%2)*Constantes.priceApple);
-                amount.put(ProductType.APPLE ,billApple );
-            }
-            else if (p.getName().equals(ProductType.ORANGE)){
-                billOrange.put(p.getQte(),Constantes.priceOrange*p.getQte());
-                amount.put(ProductType.ORANGE,billOrange );
-            }
-            else if (p.getName().equals(ProductType.WATERMELON)){
-
-                billWatermelon.put(p.getQte(), (p.getQte()/3)*Constantes.priceWatermelon*2 + (p.getQte()%3)*Constantes.priceWatermelon );
-                amount.put(ProductType.WATERMELON ,billWatermelon);
-            }
-        }
-        return amount;
-    }
-
-    public static List<Product> order (int[] tab){
-
-        int taille = tab.length ;
-        Product apple = new Product(ProductType.APPLE, tab[0]);
-        Product orange = 1<taille ? new Product(ProductType.ORANGE, tab[1]) : null;
-        Product watermelon = 2<taille ? new Product(ProductType.WATERMELON, tab[2]) : null;
-        List<Product> products = new ArrayList<>();
-        products.add(apple);
-        if (orange != null){
-            products.add(orange);
-        }
-        if (watermelon != null){
-            products.add(watermelon);
-        }
-        return products;
-    }
+          for (Order o: baskets
+               ) {
+              if(o.getProduct().getName()==APPLE){
+                  double realPriceOfApple = ((o.getQte()/2)*o.getProduct().getPrice() + (o.getQte()%2)*o.getProduct().getPrice());
+                  amount.put(o ,realPriceOfApple );
+              }
+              else if(o.getProduct().getName()==WATERMELON){
+                  double realPriceOfWatermelon = ((o.getQte()/3)*o.getProduct().getPrice()*2 + (o.getQte()%3)*o.getProduct().getPrice());
+                  amount.put(o,realPriceOfWatermelon );
+              }
+              else{
+                  amount.put(o, o.getQte()*o.getProduct().getPrice());
+              }
+          }
+          return amount;
+      }
 }
